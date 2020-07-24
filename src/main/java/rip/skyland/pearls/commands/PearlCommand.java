@@ -12,13 +12,11 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-// TODO: clean code
-public class PearlCommand implements CommandExecutor {
+public final class PearlCommand implements CommandExecutor {
 
     private String[] arguments = {
             "taliban", "fence", "tripwire", "slab", "stair", "antiglitch"
     };
-
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {

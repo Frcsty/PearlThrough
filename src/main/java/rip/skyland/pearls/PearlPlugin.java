@@ -1,15 +1,19 @@
 package rip.skyland.pearls;
 
-import lombok.Getter;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 import rip.skyland.pearls.commands.PearlCommand;
 import rip.skyland.pearls.listener.EnderpearlListener;
 
-public class PearlPlugin extends JavaPlugin {
+import java.util.Objects;
 
-    @Getter
+public final class PearlPlugin extends JavaPlugin {
+
     private static PearlPlugin instance;
+
+    public static PearlPlugin getInstance() {
+        return instance;
+    }
 
     public void onEnable() {
         instance = this;
@@ -22,6 +26,6 @@ public class PearlPlugin extends JavaPlugin {
         Bukkit.getPluginManager().registerEvents(new EnderpearlListener(), this);
 
         // load commands
-        this.getCommand("pearl").setExecutor(new PearlCommand());
+        Objects.requireNonNull(this.getCommand("pearl")).setExecutor(new PearlCommand());
     }
 }
